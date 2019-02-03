@@ -84,7 +84,7 @@ class NonceService
 
         list($code, $header, ) = RequestHelper::head($newNonceUrl);
 
-        if ($code != 204)
+        if ($code != 200) // Changed this code to 200 from 204. Keeping the HTTP HEAD Code to 204 is throwing NonceException.
         {
             throw new NonceException("Get new nonce failed, the url is: {$newNonceUrl}");
         }
